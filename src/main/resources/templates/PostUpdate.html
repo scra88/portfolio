@@ -1,0 +1,14 @@
+<html xmlns=:th="http://www.thymeleaft.org">
+
+<body>
+	<h1>글 수정</h1>
+
+	<form action="post_update_form" method="post">
+		<input type="hidden" name="id" th:value="${post_update.id}">
+		<input type="text" name="title" th:value="${post_update.title}">제목<br>
+		<input type="text" name="contents" th:value="${post_update.contents}">내용<br>
+		<input type="submit" value="작성">
+	</form>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<html xmlns=:th="http://www.thymeleaft.org">
+
+<body>
+	<h1>글 목록</h1>
+	<table border="1">
+		<th>번호</th>
+		<th>제목</th>
+		<th>내용</th>
+		<th>수정</th>
+		<th>삭제</th>
+		<tr th:each="post : ${posts}">
+			<td th:text="${post.id}"></td>
+			<td th:text="${post.title}"></td>
+			<td th:text="${post.contents}"></td>
+			<td>
+				<form action="post_update_form" method="get">
+					<input type="hidden" th:value="${post.id}" name="id">
+					<input type="submit" value="수정">
+				</form>
+			</td>
+			<td>
+				<form action="post_list" method="post">
+					<input type="hidden" th:value="${post.id}" name="id">
+					<input type="submit" value="삭제">
+				</form>
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="이전" onclick="location.href='/'">
+
+</body>
+
+</html>
